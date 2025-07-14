@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Souls Remastered 100% Checklist</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #222;
+            color: #eee;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #d4a017;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background: #333;
+            cursor: pointer;
+            border: 1px solid #555;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab.active {
+            background: #444;
+            border-bottom: 1px solid #444;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: #333;
+            border-radius: 0 5px 5px 5px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .category {
+            margin-bottom: 20px;
+        }
+        .category-header {
+            background: #444;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .category-content {
+            padding: 10px;
+            display: none;
+        }
+        .category-content.active {
+            display: block;
+        }
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        .item {
+            background: #3a3a3a;
+            padding: 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        .item input {
+            margin-right: 10px;
+        }
+        .progress-bar {
+            height: 5px;
+            background: #555;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .progress {
+            height: 100%;
+            background: #d4a017;
+            border-radius: 5px;
+            width: 0%;
+        }
+        .reset-btn {
+            background: #d4a017;
+            color: #222;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dark Souls Remastered 100% Checklist</h1>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="weapons">Weapons</div>
+            <div class="tab" data-tab="armor">Armor</div>
+            <div class="tab" data-tab="spells">Spells</div>
+            <div class="tab" data-tab="rings">Rings</div>
+        </div>
+        
+        <!-- WEAPONS TAB -->
+        <div class="tab-content active" id="weapons">
+            <div class="category">
+                <div class="category-header">
+                    <h3>Daggers</h3>
+                    <span>+</span>
+                </div>
+                <div class="category-content">
+                    <div class="checklist">
+                        <div class="item"><input type="checkbox"> Dagger</div>
+                        <div class="item"><input type="checkbox"> Bandit's Knife</div>
+                        <div class="item"><input type="checkbox"> Parrying Dagger</div>
+                        <div class="item"><input type="checkbox"> Ghost Blade</div>
+                        <div class="item"><input type="checkbox"> Jagged Ghost Blade</div>
+                        <div class="item"><input type="checkbox"> Priscilla's Dagger</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category">
+                <div class="category-header">
+                    <h3>Straight Swords</h3>
+                    <span>+</span>
+                </div>
+                <div class="category-content">
+                    <div class="checklist">
+                        <div class="item"><input type="checkbox"> Shortsword</div>
+                        <div class="item"><input type="checkbox"> Longsword</div>
+                        <div class="item"><input type="checkbox"> Broadsword</div>
+                        <div class="item"><input type="checkbox"> Broken Straight Sword</div>
+                        <div class="item"><input type="checkbox"> Balder Side Sword</div>
+                        <div class="item"><input type="checkbox"> Crystal Straight Sword</div>
+                        <div class="item"><input type="checkbox"> Sunlight Straight Sword</div>
+                        <div class="item"><input type="checkbox"> Barbed Straight Sword</div>
+                        <div class="item"><input type="checkbox"> Astora's Straight Sword</div>
+                        <div class="item"><input type="checkbox"> Drake Sword</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More weapon categories here... -->
+            
+            <button class="reset-btn" onclick="resetCategory('weapons')">Reset Weapons</button>
+        </div>
+        
+        <!-- ARMOR TAB -->
+        <div class="tab-content" id="armor">
+            <div class="category">
+                <div class="category-header">
+                    <h3>Headgear</h3>
+                    <span>+</span>
+                </div>
+                <div class="category-content">
+                    <div class="checklist">
+                        <div class="item"><input type="checkbox"> Crown of Dusk</div>
+                        <div class="item"><input type="checkbox"> Sack</div>
+                        <div class="item"><input type="checkbox"> Symbol of Avarice</div>
+                        <div class="item"><input type="checkbox"> Mask of the Father</div>
+                        <div class="item"><input type="checkbox"> Mask of the Mother</div>
+                        <div class="item"><input type="checkbox"> Mask of the Child</div>
+                        <!-- More headgear... -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More armor categories... -->
+            
+            <button class="reset-btn" onclick="resetCategory('armor')">Reset Armor</button>
+        </div>
+        
+        <!-- SPELLS TAB -->
+        <div class="tab-content" id="spells">
+            <div class="category">
+                <div class="category-header">
+                    <h3>Sorceries</h3>
+                    <span>+</span>
+                </div>
+                <div class="category-content">
+                    <div class="checklist">
+                        <div class="item"><input type="checkbox"> Soul Arrow</div>
+                        <div class="item"><input type="checkbox"> Great Soul Arrow</div>
+                        <div class="item"><input type="checkbox"> Heavy Soul Arrow</div>
+                        <div class="item"><input type="checkbox"> Great Heavy Soul Arrow</div>
+                        <!-- More sorceries... -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More spell categories... -->
+            
+            <button class="reset-btn" onclick="resetCategory('spells')">Reset Spells</button>
+        </div>
+        
+        <!-- RINGS TAB -->
+        <div class="tab-content" id="rings">
+            <div class="category">
+                <div class="category-header">
+                    <h3>Rings</h3>
+                    <span>+</span>
+                </div>
+                <div class="category-content">
+                    <div class="checklist">
+                        <div class="item"><input type="checkbox"> Ring of Favor and Protection</div>
+                        <div class="item"><input type="checkbox"> Havel's Ring</div>
+                        <div class="item"><input type="checkbox"> Dark Wood Grain Ring</div>
+                        <div class="item"><input type="checkbox"> Cloranthy Ring</div>
+                        <!-- More rings... -->
+                    </div>
+                </div>
+            </div>
+            
+            <button class="reset-btn" onclick="resetCategory('rings')">Reset Rings</button>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Category expand/collapse
+        document.querySelectorAll('.category-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+                header.querySelector('span').textContent = content.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // Reset category
+        function resetCategory(categoryId) {
+            const checks = document.querySelectorAll(`#${categoryId} input[type="checkbox"]`);
+            checks.forEach(check => check.checked = false);
+            updateProgress();
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            const total = document.querySelectorAll('input[type="checkbox"]').length;
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const progress = (checked / total) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+        }
+
+        // Initialize progress
+        document.querySelectorAll('input[type="checkbox"]').forEach(check => {
+            check.addEventListener('change', updateProgress);
+        });
+        updateProgress();
+    </script>
+</body>
+</html>
